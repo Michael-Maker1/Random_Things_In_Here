@@ -1,43 +1,51 @@
+
 import java.util.Scanner;
 public class Armstrong {
 
 	public static void main(String[] args) {
-
-		 Scanner scanner = new Scanner(System.in);  
-		System.out.print("Bitte geben Sie die untere Grenze an: ");	
-	       int untereGrenze = scanner.nextInt();
-	       System.out.print("Bitte geben Sie die obere Grenze an: ");
-	       int obereGrenze = scanner.nextInt();
-	         for( int z  =  untereGrenze; z <= obereGrenze ; z++)
-	{			if( isArmstrong(z) == true ){
-			    	System.out.println(z + " " + "ist eine Armstrongzahl!");}}}
+		
+		Scanner scanner = new Scanner(System.in);  
+		System.out.print("Bitte geben Sie die untere Grenze an:");	
+	       int eingeben1 = scanner.nextInt();
+	       System.out.print("Bitte geben Sie die obere Grenze an:");
+	       int eingeben2 = scanner.nextInt();
+	         for( int i  =  eingeben1; i <= eingeben2 ; i++)
+	{			if( isArmstrong(i) == true ){
+			    	System.out.println(i + " "+ " ist eine Armstrongzahl!");}}}
 			 
-		 static boolean isArmstrong(int num ) {
-			int sum = 0; int copyOfInput = num; int summe= 0;
-			int sum1 =0; int sum2 = 0; int sum3 =0; int sum4 = 0; int sum5 = 0;int sum6 =0; int sum7 =0; 
-		   	while (copyOfInput != 0) {
-			int lastDigit = copyOfInput % 10; 
-			sum += (lastDigit * lastDigit * lastDigit);
-			summe +=(lastDigit*lastDigit*lastDigit*lastDigit);	
-			sum1 +=(lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-sum1 +=(lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-sum2 += (lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-sum3 += (lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-sum4 += (lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-sum5 += (lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-sum6 += (lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-sum7 += (lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit*lastDigit);
-copyOfInput = copyOfInput /10;}
+		public static boolean isArmstrong(int number)
+			{ int sum = 0;   int count = 0; int cnt ; int rem =0; 
+			int mul=1;int copyOfInput = number; int justChecking = number;
+			
+			
+		   	while (number != 0) {
+		   	 number = number /10;
+		          count++;	}
+		
+		   	number = number;
+		 	cnt = count ;
+		 	
+		 	 
+		   	while (copyOfInput != 0 ) {// this is meant not be zero
+		   	rem = copyOfInput % 10;
 		   	
-		    if ( num > 0 && num < 10 ) {
-		    	  return true; }
-		if ((num== sum || summe == num || num == sum1 || num == sum2 || num == sum3 || num == sum4 || num ==sum5 || num == sum6 || num == sum7)  ) { 
-	           return true; }   
-	     
-			return false;}
+		   		while ( cnt != 0) {
+		   		mul = rem*mul; // 
+		   		cnt--;} // Decreases n times depending on the inputed number...
+		   		
+		   		sum += mul;
+		   		mul = 1;
+		   		copyOfInput = copyOfInput / 10 ; //number is meant to be 15 here 
+		   		cnt = count ; // 
+		   		}	
+		   	
+		   	
+		if (sum == justChecking ) {  //number and copyOfInput are both zeros
+	           return true; } 
+		else {
+			return false;  
+		}
+	}
 
 }
-
-	
-
 
